@@ -179,6 +179,17 @@ hr {
   cursor: no-drop;
 }
 
+.btn-select {
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-select:hover {
+  transform: translate(-4px, -4px) scale(1.02);
+  box-shadow: 8px 12px 10px 4px rgba(0, 0, 0, 0.4);
+}
+
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
