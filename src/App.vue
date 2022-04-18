@@ -1,28 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="wrapper">
+    <header class="header">
+      <nav class="header__nav">
+        <router-link
+            class="header__nav-link"
+            active-class="_active"
+            exact
+            v-for="item in navigation"
+            :key="item.route"
+            :to="{ name: item.route }"
+        >{{ item.label }}</router-link>
+      </nav>
+    </header>
+    <main>
+      <router-view />
+    </main>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+
+  data () {
+    return {
+      navigation: [
+        { label: 'Главная', route: 'home' },
+        { label: 'Не главная', route: 'not-home' }
+      ]
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
